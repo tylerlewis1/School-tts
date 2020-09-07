@@ -1,0 +1,12 @@
+const http = require('http');
+//const https = require('https');
+var fs = require('fs');
+const main = require('./main');
+const port = process.env.PORT || 3000;
+var privateKey  = fs.readFileSync('./private.key', 'utf8');
+var certificate = fs.readFileSync('./certificate.crt', 'utf8');
+var credentials = {key: privateKey, cert: certificate};
+var httpsServer = https.createServer(credentials, main);
+const server = http.createServer(main);
+httpsServer.listen(25560);
+server.listen(port);
