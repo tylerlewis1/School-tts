@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sign in</title>
+        <meta name="google-signin-client_id" content="GOOGLE CLIENT ID">
+        <script src="https://apis.google.com/js/platform.js" async defer></script>    
+    </head>
+    <body>
+       
+        <div class="g-signin2" data-onsuccess="onSignIn"></div>
+        <div id="content"></div>
+        <button onclick="ask()">Ask a question</button>  
+    </body>
+    <script>
+        var ID, Name, ImageUrl, Email, profile;
+    function onSignIn(googleUser) {
+        profile = googleUser.getBasicProfile();
+        ID = profile.getId();
+        Name = profile.getName();
+        ImageUrl = profile.getImageUrl();
+        Email = profile.getEmail();
+        document.querySelector('#content').innerText = profile.getName();
+    }
+    function ask(){
+        if(profile ==  null){
+            alert("You need to sign in before you ask a question    :(");
+            return;
+        }
+        var question = prompt("Please Enter you question    :)");
+        if(question == null){
+            return;
+        }
+        try{
+            var url = ("API REQUEST URL" + Name + "|" + question);
+            var xhttp = new XMLHttpRequest();
+            xhttp.open("POST", url);
+            xhttp.send();
+            alert("Question sent");
+        }catch(error){
+            alert("ERROR: " + error);
+        }
+
+    }
+    </script>
+</html>
