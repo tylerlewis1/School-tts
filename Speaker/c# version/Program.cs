@@ -16,7 +16,7 @@ namespace TTS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new TTS Forem());
+            Application.Run(new TTS Form());
         }
     }
 }
