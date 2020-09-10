@@ -103,7 +103,7 @@ namespace TTS
                     Thread.Sleep(500);
                     if (this.blurt == "true")
                     {
-                        WebRequest request = WebRequest.Create("https://game.thevibezone.com:25560/question");
+                        WebRequest request = WebRequest.Create("Webserver");
                         WebResponse response = request.GetResponse();
                         Stream datastream = response.GetResponseStream();
                         StreamReader reader = new StreamReader(datastream);
