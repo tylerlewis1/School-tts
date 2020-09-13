@@ -1,15 +1,30 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Sign in</title>
-        <meta name="google-signin-client_id" content="GOOGLE CLIENT ID">
+        <title>Question</title>
+        <meta name="google-signin-client_id" content="api key">
         <script src="https://apis.google.com/js/platform.js" async defer></script>    
+        <link rel="stylesheet" href="question.css">
+        <meta name="author" content="Tyler Lewis">
+        <meta name="description" content="RV tts message">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-       
-        <div class="g-signin2" data-onsuccess="onSignIn"></div>
-        <div id="content"></div>
-        <button onclick="ask()">Ask a question</button>  
+        <div class="bg"></div>
+        <nav>
+            <h1 class="title">Question Page</h1> 
+        </nav>
+        <div class="wrapper">
+            <div class="g-signin2" data-onsuccess="onSignIn" align="center"></div>
+            <button onclick="ask()" class="ask" >Ask a question</button>
+            <h5 align="center"><b>ALL MESSAGES ARE LOGGED</h5>
+        </div>
+        <footer>
+            <p class="info">Tyler Lewis 2020 | <a class="info" href="mailto:email">Support</a></p>
+            <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>
+        </footer> 
+        
     </body>
     <script>
         var ID, Name, ImageUrl, Email, profile;
@@ -19,19 +34,24 @@
         Name = profile.getName();
         ImageUrl = profile.getImageUrl();
         Email = profile.getEmail();
-        document.querySelector('#content').innerText = profile.getName();
     }
     function ask(){
         if(profile ==  null){
             alert("You need to sign in before you ask a question    :(");
             return;
         }
+        var code = prompt("Please enter your class code :)");
+        if(code ==  null){
+            alert("You must enter a code");
+            reutrn;
+        }
         var question = prompt("Please Enter you question    :)");
         if(question == null){
+            alert("You must enter a question");
             return;
         }
         try{
-            var url = ("API REQUEST URL" + Name + "|" + question);
+            var url = ("webserver" + Name + "|" + question + "|" + code);
             var xhttp = new XMLHttpRequest();
             xhttp.open("POST", url);
             xhttp.send();
