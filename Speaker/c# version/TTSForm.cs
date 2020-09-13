@@ -17,14 +17,16 @@ using System.Speech.Recognition;
 
 namespace TTS
 {
-    public partial class Form1 : Form
+    public partial class TTSForm : Form
     {
         public SpeechSynthesizer ss = new SpeechSynthesizer();
         SpeechRecognitionEngine r = new SpeechRecognitionEngine(new System.Globalization.CultureInfo("en-US"));
         String data = "Nothing";
         String data2 = "Nothing";
         Thread thread;
+        String code = "null";
         String blurt = "true";
+        String[] parse = {"null", "null", "null"};
         public Form1()
         {
             InitializeComponent();
@@ -33,7 +35,7 @@ namespace TTS
 
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void TTSForm(object sender, EventArgs e)
         {
             Choices commands = new Choices();
             commands.Add(new string[] { "Speaker speak" });
@@ -58,7 +60,7 @@ namespace TTS
         {
             ss.Rate = trackBar1.Value;
             ss.Volume = trackBar2.Value;
-            ss.SpeakAsync(data);
+                ss.SpeakAsync(data);
         }
 
 
@@ -94,6 +96,7 @@ namespace TTS
 
             }
         }
+        
         private void Get()
         {
             try
@@ -103,48 +106,57 @@ namespace TTS
                     Thread.Sleep(500);
                     if (this.blurt == "true")
                     {
-                        WebRequest request = WebRequest.Create("Webserver");
+                        WebRequest request = WebRequest.Create("Server");
                         WebResponse response = request.GetResponse();
                         Stream datastream = response.GetResponseStream();
                         StreamReader reader = new StreamReader(datastream);
                         String data1 = reader.ReadToEnd();
                         if (!data2.Equals(data1))
                         {
-                            String[] parse = data1.Split('|');
+                            parse = data1.Split('|');
                             data2 = data1;
-                            data = (parse[0] + " said " + parse[1]);
-                            ss.SpeakAsync(data);
+                            if (code == parse[2]) {
+                                data = (parse[0] + " said " + parse[1]);
+                                ss.SpeakAsync(data);
+                            }
                         }
 
                     }
                     else if(this.blurt == "false")
                     {
-                        WebRequest request = WebRequest.Create("Webserver");
+                        WebRequest request = WebRequest.Create("Server");
                         WebResponse response = request.GetResponse();
                         Stream datastream = response.GetResponseStream();
                         StreamReader reader = new StreamReader(datastream);
                         String data1 = reader.ReadToEnd();
                         if (!data2.Equals(data1))
                         {
-                            String[] parse = data1.Split('|');
+                            parse = data1.Split('|');
                             data2 = data1;
-                            data = (parse[0] + " said " + parse[1]);
-                            Console.Beep();
-                            
+                            if (code == parse[2])
+                            {
+                                data = (parse[0] + " said " + parse[1]);
+                                Console.Beep();
+                            }
                         }
 
 
                     }
                 }
             }
-            catch (InvalidCastException e)
+            catch (WebException e)
             {
                 MessageBox.Show("ERROR: " + e + " |  check internet connection :)");
             }
 
         }
-    
-    
-    
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            String setcode = this.textBox1.Text;
+            code = setcode;
+            MessageBox.Show("Your class code was set to: " + code);
+
+        }
     }
 }
