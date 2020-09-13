@@ -1,6 +1,6 @@
 namespace TTS
 {
-    partial class TTSform
+    partial class TTSForm
     {
         /// <summary>
         /// Required designer variable.
