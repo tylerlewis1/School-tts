@@ -1,0 +1,68 @@
+@font-face {
+	font-family: 'Big John Regular';
+	font-style: normal;
+	font-weight: normal;
+	src: local('Big John Regular'), url('./Big John.woff') format('woff');
+}
+*{
+    padding: 0px;
+    margin: 0px;
+}
+html{
+   width: 600px;
+   height: 600px;
+   
+}
+body{
+    height: 100%;
+    width: 100%;
+    background-image: url('rvbg.jpg');
+    background-size: cover;
+    backdrop-filter: blur(10px);
+}
+nav{
+    background-color: black;
+    width: 100%;
+    height: 60px;
+}
+h1{
+    color: white;
+    text-align: center;
+    font-family: "Big John Regular";
+    font-size: 30pt;
+}
+.help{
+    text-decoration: none;
+    color: white;
+    font-size: 15pt;
+}
+footer{
+    text-align: center;
+    background-color: black;
+    position: absolute;
+    bottom: 0px;
+    height: 40px;
+    width: 100%;
+}
+p{
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    color: white;
+}
+input{
+    display: block;
+    margin:auto;
+}
+h4{
+    margin-top: 40px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+    text-align: center;
+}
+button{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
