@@ -1,33 +1,32 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Question</title>
-        <meta name="google-signin-client_id" content="api key">
-        <script src="https://apis.google.com/js/platform.js" async defer></script>    
-        <link rel="stylesheet" href="question.css">
-        <meta name="author" content="Tyler Lewis">
-        <meta name="description" content="RV tts message">
-        <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Question Page</title>
+        <meta name="google-signin-client_id" content="">
+        <script src="https://apis.google.com/js/platform.js" async defer></script>    
+        <link rel="stylesheet" href="Style1.css">
+        <meta name="author" content="Tyler Lewis">
+        <meta name="description" content="RV TTS Message Page">
+        <link rel="shortcut icon" type="image/x-icon" href="128.png"/>
+        <meta charset="UTF-8">
     </head>
     <body>
-        <div class="bg"></div>
-        <nav>
-            <h1 class="title">Question Page</h1> 
-        </nav>
-        <div class="wrapper">
-            <div class="g-signin2" data-onsuccess="onSignIn" align="center"></div>
-            <button onclick="ask()" class="ask" >Ask a question</button>
-            <h5 align="center"><b>ALL MESSAGES ARE LOGGED</h5>
+        <div class="content">
+            <div class="g-signin2" data-onsuccess="onSignIn"></div>
+            <label>Class Code</label>
+            <br>
+            <input type="text" id="code" class="classcode" name="classcode"></input>
+            <br>
+            <label>Question</label>
+            <br>
+            <textarea id="question" type="text" rows="10" cols="35" name="question"></textarea>
+            <br>
+            <button onclick="ask()">Ask</button>
         </div>
-        <footer>
-            <p class="info">Tyler Lewis 2020 | <a class="info" href="mailto:email">Support</a></p>
-            <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>
-        </footer> 
-        
     </body>
     <script>
-        var ID, Name, ImageUrl, Email, profile;
+    var ID, Name, ImageUrl, Email, profile;
     function onSignIn(googleUser) {
         profile = googleUser.getBasicProfile();
         ID = profile.getId();
@@ -36,22 +35,19 @@
         Email = profile.getEmail();
     }
     function ask(){
-        if(profile ==  null){
+        
+        if(profile == null){
             alert("You need to sign in before you ask a question    :(");
             return;
         }
-        var code = prompt("Please enter your class code :)");
-        if(code ==  null){
-            alert("You must enter a code");
-            reutrn;
+        var question = document.getElementById('question').value;
+        var code = document.getElementById('code').value;
+        if(code == "" || question == ""){
+            alert("All text fields must be filled");
         }
-        var question = prompt("Please Enter you question    :)");
-        if(question == null){
-            alert("You must enter a question");
-            return;
-        }
+        console.log(code + "  " + question );
         try{
-            var url = ("webserver" + Name + "|" + question + "|" + code);
+            var url = ("WEBSERVER" + Name + "|" + question + "|" + code);
             var xhttp = new XMLHttpRequest();
             xhttp.open("POST", url);
             xhttp.send();
