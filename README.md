@@ -8,3 +8,7 @@ This is a TTS service ment for schools.
 <h1>What the options do</h1>
 <h6>Image: https://i.ibb.co/pnXXBTC/image.png</h6>
 <p>The speed slider selects speed of the tts voice. <br> The volume slider selects the volume of the tts voice. <br> The voice gender dropdown selects the gender of the tts voice.<br> The mode drop down you can select blurt witch will just say the message and the wait mode will beep when you get a question and to make it say the message you can click on the repeat last question button or say "speaker speak".</p>
+<br>
+<h1>How to get it to work</h1>
+ <br>
+ <p>All you need to do to get it working is change every where it says "webserver" with your server ip and add a google api key where it says "API KEY"</p>
