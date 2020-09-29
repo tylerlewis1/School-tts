@@ -16,7 +16,7 @@ function codeSet(code1, sender, sendResponce){
 async function get(){
     var oReq = new XMLHttpRequest();
     oReq.addEventListener("load", reqListener);
-    oReq.open("GET", "WEB SERVER");
+    oReq.open("GET", "WEBSERVER");
     oReq.send();
 }
 function reqListener () {
