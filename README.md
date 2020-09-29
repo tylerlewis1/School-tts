@@ -12,3 +12,6 @@ This is a TTS service ment for schools.
 <h1>How to get it to work</h1>
  <br>
  <p>All you need to do to get it working is change every where it says "webserver" with your server ip and add a google api key where it says "API KEY"</p>
+ <br>
+ <br>
+ <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
