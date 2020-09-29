@@ -10,7 +10,7 @@ print('running')
 while(True):
     time.sleep(.5)
     try:
-        get = requests.get('API REQUEST URL', verify=False)
+        get = requests.get('WEBSERVER', verify=False)
         if(get.text != data):
             data = (get.text)
             innerdata = get.text.split("|")
