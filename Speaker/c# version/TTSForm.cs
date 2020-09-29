@@ -106,7 +106,7 @@ namespace TTS
                     Thread.Sleep(500);
                     if (this.blurt == "true")
                     {
-                        WebRequest request = WebRequest.Create("Server");
+                        WebRequest request = WebRequest.Create("WEBSERVER");
                         WebResponse response = request.GetResponse();
                         Stream datastream = response.GetResponseStream();
                         StreamReader reader = new StreamReader(datastream);
