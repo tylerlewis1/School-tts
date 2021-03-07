@@ -13,29 +13,33 @@ using System.Linq.Expressions;
 using System.IO;
 using System.Threading;
 using System.Speech.Recognition;
-
+using Newtonsoft.Json.Linq;
 
 namespace TTS
 {
-    public partial class TTSForm : Form
+    public partial class Form1 : Form
     {
         public SpeechSynthesizer ss = new SpeechSynthesizer();
         SpeechRecognitionEngine r = new SpeechRecognitionEngine(new System.Globalization.CultureInfo("en-US"));
         String data = "Nothing";
         String data2 = "Nothing";
         Thread thread;
+        String URl = "";
         String code = "null";
         String blurt = "true";
         String[] parse = {"null", "null", "null"};
         public Form1()
         {
+            //getting server url
+            JObject data = JObject.Parse(File.ReadAllText("./Settings.json"));
+            URl = (String)data["Server_URL"];
             InitializeComponent();
             thread = new Thread(Get);
             thread.Start();
 
         }
 
-        private void TTSForm(object sender, EventArgs e)
+        private void Form1_Load(object sender, EventArgs e)
         {
             Choices commands = new Choices();
             commands.Add(new string[] { "Speaker speak" });
@@ -106,7 +110,7 @@ namespace TTS
                     Thread.Sleep(500);
                     if (this.blurt == "true")
                     {
-                        WebRequest request = WebRequest.Create("WEBSERVER");
+                        WebRequest request = WebRequest.Create(URl);
                         WebResponse response = request.GetResponse();
                         Stream datastream = response.GetResponseStream();
                         StreamReader reader = new StreamReader(datastream);
@@ -124,7 +128,7 @@ namespace TTS
                     }
                     else if(this.blurt == "false")
                     {
-                        WebRequest request = WebRequest.Create("Server");
+                        WebRequest request = WebRequest.Create(URl);
                         WebResponse response = request.GetResponse();
                         Stream datastream = response.GetResponseStream();
                         StreamReader reader = new StreamReader(datastream);
