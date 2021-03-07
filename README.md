@@ -13,7 +13,7 @@ This is a TTS service ment for schools.
 <br>
 <h1>How to get it to work</h1>
  <br>
- <p>All you need to do to get it working is change every where it says "WEBSERVER" (If you use the C# version you the place to change server url is in settings.json) with your server ip and add a google api key where it says "API KEY". The https port is 25560 by default and the http port is 3000 by default.</p>
+ <p>All you need to do to get it working is change everywhere it says "WEBSERVER" (If you use the C# version you the place to change server URL is in settings.json) with your server IP and add a google API key where it says "API KEY". The HTTPS port is 25560 by default and the HTTP port is 3000 by default. For the webserver, you need to add your SSL private key and certificate for your domain.</p>
  <br>
  <br>
  <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
