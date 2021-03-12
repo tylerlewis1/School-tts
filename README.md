@@ -1,7 +1,7 @@
 # School-tts
 This is a TTS service ment for schools.
 <br>
-<b>If you are intrsted in using this program and you want more information about it or help setting it up, You can contact me at Tyler@lewis.network.</b>
+<b>If you are interested in using this program and you want more information about it or help setting it up, You can contact me at Tyler@lewis.network.</b>
 <br>
 <h1>How it works</h1>
 <br>
