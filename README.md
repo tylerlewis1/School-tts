@@ -7,6 +7,8 @@ This is a TTS service ment for schools.
 <br>
 <p>The student gose the the website and logs in with google. They log in so the teacher knows how asked the question. Next the student will click the ask a question button and they will be prompted to enter a class code. Next they will be prompted to enter their question. Once they enter their question the website will make a POST request to the webserver with the name, question and class code. Once the web server receives the data it will put it in a log file(This is mainly for security). Next every .5 seconds the tts app makes a GET request to the webserver and seeing if the data has changed and if it has it checks for the class code. If the class code matched the one given it will use speech synthesis to speak.</p>
 <br>
+<img src="https://i.ibb.co/rK9KTZ3/how-it-works.png" width=500>
+<br>
 <h1>What the options do</h1>
 <html>
 <img src="https://i.ibb.co/pnXXBTC/image.png">
